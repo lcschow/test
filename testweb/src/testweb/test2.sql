@@ -1,7 +1,7 @@
 SELECT (a.account_count + b.account_count + d.account_count) AS loan_cnt,
        ROUND((a.undemanded_principal + c.principal_arrear + d.principal_arrear + e.principal_arrear)/1000000, 3) AS outstanding_principal
-FROM (SELECT COUNT(loan_ref_num) account_count,
-			NVL(SUM(undemanded_principal), 0) undemanded_principal
+FROM (SELECT COUNT(loan_ref_num) AS account_count,
+			NVL(SUM(undemanded_principal), 0) AS undemanded_principal
 		FROM fasp_rep_stat_loan
 		WHERE loan_status = 'R'	
 		AND grant_loan_flag IN ('G', 'L', 'Q')
