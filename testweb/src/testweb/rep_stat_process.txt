@@ -1,0 +1,39 @@
+
+
+select * from rep_stat_process order by updated_date desc
+
+
+
+update rep_stat_process set status = 'COMPLETED', output_message = null where id = 50508
+
+commit
+
+
+select name, to_char(start_time, 'YYYYMMDD HHMISS'),  to_char(end_time, 'YYYYMMDD HHMISS') from rep_stat_process order by updated_date desc
+
+10-JUL-19 10.00.09.211939000 PM
+
+select * from batch_process  order by batch_process_id desc
+select * from batch_result  order by batch_result_id desc
+select * from batch_process where process_name like '%REP_STAT%' order by updated_date desc
+
+
+
+select min(created_date), max(created_date) from enls_rep_stat_loan_rep where scheme_code = 'ENLS' and position_date = '31-05-2019'
+10-JUL-19 11.05.59.081484000 PM	10-JUL-19 11.27.42.305441000 PM
+select min(created_date), max(created_date) from enls_rep_stat_loan_rep2 where scheme_code = 'ENLS' and position_date = '31-05-2019'
+10-JUL-19 11.27.54.926307000 PM	11-JUL-19 12.41.23.656846000 AM
+select min(created_date), max(created_date) from enls_rep_stat_loan_rep3 where scheme_code = 'ENLS' and position_date = '31-05-2019'
+11-JUL-19 12.41.28.312908000 AM	11-JUL-19 07.11.00.119025000 AM
+select min(created_date), max(created_date) from enls_rep_stat_fully_settled where scheme_code = 'ENLS' and position_date = '31-05-2019'
+11-JUL-19 07.11.29.413407000 AM	11-JUL-19 09.05.40.878330000 AM
+select min(created_date), max(created_date) from enls_rep_stat_rep_trans where scheme_code = 'ENLS' and position_date = '31-05-2019'
+11-JUL-19 09.05.42.814387000 AM	11-JUL-19 09.13.25.272135000 AM
+select min(updated_date), max(updated_date) from nls_rep_stat_dn_arrear where scheme_code = 'ENLS' and position_date = '31-05-2019' 
+11-JUL-19 09.13.51.017040000 AM	11-JUL-19 09.18.50.057997000 AM
+
+select * from rep_stat_dn_rep_summary order by updated_date desc
+11-JUL-19 09.18.57.102107000 AM
+select * from rep_stat_loan_rep_summary order by updated_date desc
+11-JUL-19 09.18.57.254362000 AM
+
